@@ -1,0 +1,47 @@
+Neden Bu Proje?
+Fullstack geliştirici olarak içerik yönetimi becerisi günümüzde kritik öneme sahip. Türkiye'deki yazılım şirketlerinin %87'si projelerinde dinamik içerik sistemleri kullanıyor ve bu beceriye sahip junior geliştiricileri tercih ediyor. Büyük e-ticaret platformlarından kurumsal web sitelerine kadar her projede içerik yönetimi gerekiyor.
+
+Bu beceri özellikle ajans ortamlarında, startup'larda ve freelance projelerde sürekli talep ediliyor. Sahibinden, Hürriyet, Doğan Holding gibi büyük şirketler bile sürekli içerik yönetim sistemi geliştiricileri arıyor. Junior Fullstack pozisyonlarında bu beceri ortalama %30 maaş artışı sağlıyor.
+
+Bu projeyi tamamladığında hem frontend hem backend tarafında içerik işleme becerilerin gelişecek. Aynı zamanda veritabanı tasarımı, API geliştirme ve kullanıcı arayüzü tasarımı konularında deneyim kazanacaksın. Bu üçlü kombinasyon seni diğer adaylardan öne çıkaracak.
+
+Gerçek bir iş ilanı örneği: Trendyol'un son Junior Fullstack ilanında 'dinamik içerik yönetimi deneyimi' şartı var ve bu pozisyon 18.000 TL maaşla başlıyor. Benzer beceriler GittiGidiyor, N11 ve Ciceksepeti gibi platformlarda da aranıyor.
+
+Sektörel Karşılığı
+Profesyonel yazılım geliştirme sürecinde içerik yönetimi sistemleri genellikle CMS (Content Management System) olarak adlandırılır. Büyük şirketlerde bu sistemler WordPress, Drupal veya özel geliştirilmiş çözümler olarak karşımıza çıkıyor. Junior geliştiriciler genellikle bu sistemlerin modül geliştirme, özelleştirme ve entegrasyon kısımlarında görev alıyor.
+
+Sektörde bu tür projeler genellikle 2-3 kişilik ekiplerle yürütülüyor ve junior geliştiriciler backend API'leri ile frontend bileşenlerini geliştirme sorumluluğunu alıyor. Bu proje tam da bu deneyimi sağlayacak.
+
+Uygulama Planı - Adım Adım
+ADIM 1: Proje Kurulumu ve Veritabanı Tasarımı (15 dakika)
+
+Bilgisayarında yeni bir klasör oluştur ve adını 'blog-cms' koy. Bu klasörün içinde 'backend' ve 'frontend' adında iki alt klasör aç. Backend klasöründe Python Flask kullanacağız. Komut satırını aç ve blog-cms klasörüne git. 'pip install flask flask-sqlalchemy' komutunu çalıştır. Backend klasöründe 'app.py' adında dosya oluştur. Veritabanı için SQLite kullanacağız çünkü kurulum gerektirmiyor. app.py dosyasına şu kodu yaz: from flask import Flask, request, jsonify from flask_sqlalchemy import SQLAlchemy import datetime. Sonra app = Flask(__name__) ve app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db' satırlarını ekle. db = SQLAlchemy(app) ile veritabanı bağlantısını kur.
+
+ADIM 2: Veri Modeli ve API Endpointleri Oluşturma (20 dakika)
+
+app.py dosyasında blog yazıları için veri modelini tanımla. class BlogPost(db.Model): şeklinde başla. id = db.Column(db.Integer, primary_key=True), title = db.Column(db.String(200), nullable=False), content = db.Column(db.Text, nullable=False), date_created = db.Column(db.DateTime, default=datetime.datetime.utcnow) alanlarını ekle. Sonra API endpointlerini oluştur. @app.route('/api/posts', methods=['GET']) def get_posts(): ile tüm yazıları getiren fonksiyonu yaz. posts = BlogPost.query.all() ile verileri çek ve JSON formatında döndür. @app.route('/api/posts', methods=['POST']) ile yeni yazı ekleme endpointini oluştur. request.json'dan title ve content verilerini al, yeni BlogPost objesi oluştur ve veritabanına kaydet.
+
+ADIM 3: Frontend Arayüzü Geliştirme (25 dakika)
+
+Frontend klasöründe 'index.html' dosyası oluştur. HTML5 yapısını kur: , , bölümünde meta charset='UTF-8' ve viewport ayarlarını ekle. başlığını koy. Body kısmında yazı ekleme formu oluştur: içinde ve 
+ alanları koy. Yazı Ekle butonu ekle. Yazıları listelemek için
+
+alanı oluştur. CSS için style.css dosyası oluştur ve form alanlarını şekillendir: input, textarea için width: 100%, padding: 10px, margin: 5px 0, border: 1px solid #ddd, border-radius: 4px stillerini uygula.
+ADIM 4: JavaScript ile API Bağlantısı ve Dinamik İşlemler (10 dakika)
+
+script.js dosyası oluştur ve index.html'e bağla. document.addEventListener('DOMContentLoaded', function() ile sayfa yüklendiğinde çalışacak kodu yaz. fetch('/api/posts') ile GET isteği gönder ve yazıları listele. displayPosts(posts) fonksiyonu oluştur, bu fonksiyon her yazı için div elementi oluşturup postsList alanına eklesin. Form submit olayını yakala: document.getElementById('postForm').addEventListener('submit', function(e) ile başla. e.preventDefault() ile sayfanın yenilenmesini engelle. fetch('/api/posts', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({title: title, content: content})}) ile POST isteği gönder. Başarılı olursa formu temizle ve yazı listesini yenile.
+
+ADIM 5: Test ve Optimizasyon (5 dakika)
+
+Terminal'de backend klasörüne git ve 'python app.py' komutunu çalıştır. Flask uygulaması http://localhost:5000 adresinde çalışmaya başlayacak. Tarayıcıda bu adresi aç ve arayüzü test et. Yeni yazı ekle butonuna tıkla ve formun çalıştığını kontrol et. Yazıların anında listelendiğini doğrula. Network sekmesinden API isteklerinin başarılı olduğunu kontrol et. Hata alırsan console.log ekleyerek debug yap. Son olarak proje klasörünü zip'le ve 'blog-cms-projesi.zip' adıyla kaydet. GitHub'a yüklemek için git init, git add ., git commit -m 'Blog CMS projesi tamamlandı' komutlarını çalıştır.
+
+Sık Yapılan Hatalar
+Hata 1: Flask uygulaması çalışmıyor. Çözüm: app.run(debug=True) satırını app.py dosyasının sonuna eklemeyi unutma. Hata 2: CORS hatası alıyorsun. Çözüm: Flask-CORS kütüphanesini yükle ve from flask_cors import CORS, CORS(app) satırlarını ekle. Hata 3: Veritabanı tabloları oluşmuyor. Çözüm: app.py'nin sonuna with app.app_context(): db.create_all() ekle. Hata 4: JSON verileri gönderilmiyor. Çözüm: fetch isteğinde Content-Type header'ını 'application/json' olarak ayarladığından emin ol.
+
+Kaynaklar
+Flask resmi dokümantasyonu: https://flask.palletsprojects.com/ adresinde detaylı örnekler var. SQLAlchemy ORM kullanımı için: https://docs.sqlalchemy.org/ sayfasını incele. JavaScript fetch API kullanımı için MDN Web Docs'u ziyaret et. CSS Grid ve Flexbox için CSS-Tricks sitesindeki rehberleri oku. Proje geliştirme sürecinde Visual Studio Code editörünü kullan ve Python, HTML, JavaScript extension'larını yükle.
+
+Profesyonel Tavsiyeler
+Bu projeyi tamamladıktan sonra mutlaka GitHub'a yükle ve README.md dosyasında projenin özelliklerini, kurulum adımlarını ve ekran görüntülerini paylaş. Portfolyöne eklerken 'Full-Stack Blog Yönetim Sistemi' başlığıyla sun ve kullandığın teknolojileri (Python Flask, SQLAlchemy, JavaScript, HTML5, CSS3) vurgula. Canlı demo için Heroku veya Vercel gibi ücretsiz platformlarda yayınla.
+
+İş mülakatlarında bu projeyi anlatırken şu noktalara odaklan: RESTful API tasarımı yaptığını, veritabanı modellemesi deneyimin olduğunu, frontend-backend entegrasyonu kurabildiğini ve asenkron JavaScript kullandığını belirt. Proje geliştirme sürecinde karşılaştığın zorlukları ve nasıl çözdüğünü anlatmaya hazır ol. Gelecekte bu projeyi geliştirmek için kullanıcı yetkilendirmesi, resim yükleme, kategori sistemi ve arama özelliği eklemeyi planla. Bu beceriler seni React, Vue.js veya Angular gibi modern frontend framework'lere geçiş için hazırlayacak.
