@@ -29,7 +29,7 @@ Bu proje; perakende, e-ticaret ve lojistik sektörlerinin en kritik ihtiyaçlar�
 
 ## 📁 Klasör Yapısı
 
-```bash
+```
 stok-takip-sistemi/
 ├── backend/
 │   └── app.py          # Flask REST API Sunucusu
@@ -45,7 +45,7 @@ Projenin geliştirilmesi ve entegrasyonu sürecinde karşılaşılan zorluklar v
 1. Template Literals (${}) ve Tırnak İşareti Uyuşmazlığı
 Zorluk: API istekleri sırasında fetch fonksiyonunun değişkeni okuyamaması ve var olmayan bir adrese gitmeye çalışması sonucu 404 Not Found ve bağlantı hataları alındı.
 
-Çözüm: JavaScript'te string interpolasyonu (${değişken}) yapılabilmesi için düz tek tırnak (') yerine ters tırnak (backtick - `) işaretinin kullanılması gerektiği analiz edildi ve sözdizimi (syntax) güncellenerek dinamik URL yapısı sağlandı.
+Çözüm: JavaScript'te string interpolasyonu (${değişken}) yapılabilmesi için düz tek tırnak (') yerine ters tırnak (backtick- `) işaretinin kullanılması gerektiği analiz edildi ve sözdizimi (syntax) güncellenerek dinamik URL yapısı sağlandı.
 
 2. Nesne Öznitelikleri ve Eksik Veri Paketlemesi (Payload Validation)
 Zorluk: Form verileri backend'e gönderilirken veritabanı/RAM listesine eklenemedi ve backend tarafında "Lütfen tüm alanları doldurun!" validasyon hatası tetiklendi. Ayrıca tarayıcı otomatik tamamlama (autocomplete) hatası yüzünden ürün adları undefined olarak gitti.
