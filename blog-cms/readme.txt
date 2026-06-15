@@ -52,7 +52,6 @@ blog-cms/
 cd backend
 pip install flask flask-sqlalchemy flask-cors
 python app.py
-
 ```
 Sunucu varsayılan olarak http://127.0.0.1:5000 portunda istekleri dinlemeye başlayacaktır.
 
@@ -74,3 +73,14 @@ Proje geliştirme sürecinde karşılaşılan teknik problemler, nedenleri ve uy
 ### 3. DOM Eleman Adlandırma Uyuşmazlığı (Null Pointer Hatası)
 * **Zorluk:** Sayfa ilk yüklendiğinde tarayıcı konsolunda `TypeError: Cannot set properties of null (setting 'innerHTML')` ve `ReferenceError: postsList is not defined` hataları alındı ve API'den gelen veriler ekrana basılamadı.
 * **Çözüm:** Adli bilişim (forensics) mantığıyla HTML ve JavaScript kodları satır satır karşılaştırıldı. HTML tarafındaki `<div id="postsList">` (çoğul) elementi ile script tarafında tanımlanan `postList` (tekil) değişken adlandırmasındaki yazım hatası (typo) tespit edildi. JavaScript tarafındaki değişken ve seçiciler (selectors) HTML id mimarisiyle tam senkronize hale getirilerek hata kökten çözüldü.
+
+🗺️ Gelecek Planları ve Yol Haritası (Future Roadmap)
+Gelişmiş Kimlik Doğrulama ve Yetkilendirme (Authentication & Authorization): Sisteme JWT (JSON Web Token) tabanlı bir giriş mekanizması entegre edilecektir. Böylece sadece giriş yapmış yetkili kullanıcıların (Admin) yazı ekleme ve silme (POST, DELETE) operasyonlarını yapabilmesi sağlanarak API güvenliği (Access Control) maksimuma çıkarılacaktır.
+
+İçerik Arama ve Filtreleme Motoru: Frontend tarafında kullanıcıların blog yazıları arasında başlık veya içeriğe göre anlık arama yapabilmesi için dinamik bir arama barı (input event listener) ve backend tarafında SQL LIKE sorguları içeren bir arama endpoint'i tasarlanacaktır.
+
+Gelişmiş SQL Enjeksiyonu (SQLi) ve Input Validasyon Koruması: SQLAlchemy ORM mimarisi parametrik sorgularla SQLi'yi engellese de, backend katmanına Pydantic veya Marshmallow kütüphaneleri eklenerek girdilerin veri tipleri, karakter sınırları ve formatları (Data Validation) API sınırında sıkı bir denetime tabi tutulacaktır.
+
+Yapay Zeka Destekli Otomatik Özetleme (AI Integration): Sisteme eklenecek bir mikroservis üzerinden, yeni bir blog yazısı paylaşıldığında açık kaynaklı bir LLM API'si (veya RAG mimarisi) tetiklenecek; yazı içeriğini analiz ederek otomatik olarak kısa bir "Özet" ve "Etiketler (Tags)" üretecektir.
+
+Veritabanı Migrasyon Altyapısı (Flask-Migrate): Projenin kurumsal ölçeğe taşınabilmesi ve ilerleyen süreçte yeni tablolar (Kullanıcılar, Yorumlar, Kategoriler) eklendiğinde mevcut verilerin kaybolmaması amacıyla Alembic / Flask-Migrate entegrasyonu yapılarak veritabanı sürüm kontrol sistemi kurulacaktır.
