@@ -43,7 +43,7 @@ Projenin yerel ortamınızda (local) çalıştırılabilmesi için aşağıdaki 
 
    # Aktifleştirme (Mac/Linux için)
    source feedback_env/bin/activate
-```
+	```
 3. Gerekli kütüphaneleri yükleyin:
 	
  ```bash
