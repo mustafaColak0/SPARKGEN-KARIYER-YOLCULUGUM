@@ -42,7 +42,7 @@ Proje kapsamında veri ön işleme (data preprocessing), istatistiksel çıkarı
    
    # Gerekli paketlerin yüklenmesi
    pip install pandas matplotlib seaborn flask
-```
+   ```
 2. Analizin Başlatılması
 Ana analiz betiğini çalıştırarak veri setinin işlenmesini ve grafiklerin üretilmesini sağlayın:
 
