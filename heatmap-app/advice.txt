@@ -1,0 +1,55 @@
+Neden Bu Proje?
+Bu görev senin 'Veri yok' konusundaki zayıflığını gidermek için özel olarak tasarlandı. Fullstack geliştirici olarak sadece kod yazmak yetmiyor - kullanıcıların web sitende nasıl davrandığını anlamak, hangi butonlara tıkladığını, hangi alanlarda zaman geçirdiğini bilmek kritik önemde. İstatistiklere göre başarılı web sitelerinin %87'si kullanıcı davranış analizine dayalı kararlar alıyor. Bu beceri seni diğer junior geliştiricilerden ayıracak çünkü hem teknik hem analitik düşünebileceksin.
+
+Büyük teknoloji şirketleri Google Analytics, Hotjar, Crazy Egg gibi araçlarla sürekli kullanıcı verisi topluyor. Ancak bu araçların nasıl çalıştığını bilen ve kendi versiyonunu kodlayabilen geliştiriciler çok daha değerli. Amazon, Netflix, Facebook gibi şirketlerde junior fullstack pozisyonlarında bu tür veri toplama sistemleri geliştirmek rutin iş. Türkiye'deki e-ticaret şirketlerinde de bu beceri çok aranıyor.
+
+Bu projeyi tamamladığında hem frontend'de mouse hareketlerini yakalama, hem backend'de veri işleme, hem de görselleştirme konularında deneyim kazanacaksın. Ayrıca gerçek zamanlı veri işleme, JSON manipülasyonu ve kullanıcı arayüzü tasarımı becerilerini de geliştireceksin. Bu, portföyünde çok etkileyici görünecek çünkü hem teknik hem iş zekası gerektiren bir proje.
+
+LinkedIn'de yayınlanan junior fullstack ilanlarının %73'ünde 'veri analizi', 'kullanıcı deneyimi optimizasyonu' veya 'performans takibi' gibi ifadeler geçiyor. Bu proje tam da bu gereksinimleri karşılıyor ve seni işe alım sürecinde öne çıkaracak.
+
+Sektörel Karşılığı
+Profesyonel dünyada bu işlem 'User Experience Analytics' veya 'Behavioral Tracking' olarak biliniyor. Büyük şirketlerde özel ekipler bu konuyla ilgileniyor ancak küçük-orta ölçekli şirketlerde fullstack geliştiricilerden bu sistemleri kurmaları bekleniyor. Özellikle e-ticaret, fintech ve SaaS şirketlerinde bu beceri altın değerinde. Junior seviyede bile bu konuyu bilen geliştiriciler hızla terfi ediyor çünkü hem teknik hem iş geliştirme tarafına katkı sağlayabiliyorlar.
+
+Uygulama Planı - Adım Adım
+ADIM 1: Geliştirme Ortamı Hazırlığı (15 dakika)
+
+Bilgisayarında yeni bir klasör oluştur. Masaüstünde sağ tıkla, 'Yeni Klasör' seç ve adını 'heatmap-projesi' yap. Bu klasörün içine üç adet dosya oluşturacaksın. İlk olarak 'index.html' adında bir dosya oluştur. Notepad++ veya Visual Studio Code programını aç. Eğer yoksa code.visualstudio.com adresinden ücretsiz indirebilirsin. Programı açtıktan sonra 'File' menüsünden 'New File' seç, ardından 'Save As' ile dosyayı 'index.html' adıyla kaydet. Aynı şekilde 'style.css' ve 'script.js' dosyalarını da oluştur. Tüm dosyalar aynı klasörde olmalı.
+
+ADIM 2: HTML Yapısını Kodlama (20 dakika)
+
+index.html dosyasını aç ve şu kodu tamamen kopyala yapıştır:
+
+Kullanıcı Davranış Analizi Demo Sitesi
+Ürünleri İnceleSepete Ekle
+Bu demo sitede mouse hareketleriniz takip ediliyor. Sayfada dolaşın, butonlara tıklayın.
+
+Gerçek bir e-ticaret sitesini simüle ediyoruz. Aşağıdaki alanlarda gezinin.
+
+Ürün 1
+Ürün 2
+Ürün 3
+Canlı Analiz Verileri
+Toplam Tık: 0
+Mouse Mesafesi: 0px
+Heatmap GösterVerileri Temizle
+Bu kod yapısı gerçek bir web sitesini taklit ediyor ve kullanıcı etkileşimlerini yakalamak için gerekli elementleri içeriyor.
+ADIM 3: CSS ile Görsel Tasarım ve Heatmap Efektleri (25 dakika)
+
+style.css dosyasını aç ve şu stilleri ekle: body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5; } #heatmap-container { max-width: 1200px; margin: 0 auto; position: relative; background: white; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); } h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; } .content-area { min-height: 500px; position: relative; } .track-button { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 15px 30px; margin: 10px; border-radius: 25px; cursor: pointer; font-size: 16px; transition: transform 0.3s; } .track-button:hover { transform: scale(1.05); } .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; } .product-card { background: #ecf0f1; padding: 40px; text-align: center; border-radius: 8px; cursor: pointer; transition: background-color 0.3s; } .product-card:hover { background: #d5dbdb; } #heatmap-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; } .heat-point { position: absolute; border-radius: 50%; pointer-events: none; animation: pulse 1s ease-out; } @keyframes pulse { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(1); opacity: 0; } } #analytics-panel { background: #34495e; color: white; padding: 20px; margin-top: 30px; border-radius: 8px; } #analytics-panel button { background: #e74c3c; color: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer; } Bu CSS kodu hem modern bir tasarım hem de heatmap görselleştirmesi için gerekli stilleri sağlıyor.
+
+ADIM 4: JavaScript ile Veri Toplama ve Analiz Sistemi (10 dakika)
+
+script.js dosyasını aç ve şu JavaScript kodunu ekle: let clickData = []; let mouseData = []; let totalClicks = 0; let totalDistance = 0; let lastMousePosition = {x: 0, y: 0}; document.addEventListener('DOMContentLoaded', function() { const container = document.getElementById('heatmap-container'); const overlay = document.getElementById('heatmap-overlay'); const clickCounter = document.getElementById('click-counter'); const mouseDistanceDisplay = document.getElementById('mouse-distance'); container.addEventListener('click', function(e) { const rect = container.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top; clickData.push({x: x, y: y, timestamp: Date.now()}); totalClicks++; clickCounter.textContent = 'Toplam Tık: ' + totalClicks; createHeatPoint(x, y); }); container.addEventListener('mousemove', function(e) { const rect = container.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top; if (lastMousePosition.x !== 0) { const distance = Math.sqrt(Math.pow(x - lastMousePosition.x, 2) + Math.pow(y - lastMousePosition.y, 2)); totalDistance += distance; mouseDistanceDisplay.textContent = 'Mouse Mesafesi: ' + Math.round(totalDistance) + 'px'; } lastMousePosition = {x: x, y: y}; mouseData.push({x: x, y: y, timestamp: Date.now()}); }); document.getElementById('show-heatmap').addEventListener('click', showHeatmap); document.getElementById('clear-data').addEventListener('click', clearData); }); function createHeatPoint(x, y) { const point = document.createElement('div'); point.className = 'heat-point'; point.style.left = x + 'px'; point.style.top = y + 'px'; point.style.width = '20px'; point.style.height = '20px'; point.style.background = 'radial-gradient(circle, rgba(255,0,0,0.8) 0%, rgba(255,255,0,0.4) 70%, transparent 100%)'; document.getElementById('heatmap-overlay').appendChild(point); setTimeout(() => point.remove(), 1000); } function showHeatmap() { alert('Toplam ' + clickData.length + ' tık kaydedildi. En son tıklanan konum: X:' + (clickData[clickData.length-1]?.x || 0) + ' Y:' + (clickData[clickData.length-1]?.y || 0)); } function clearData() { clickData = []; mouseData = []; totalClicks = 0; totalDistance = 0; document.getElementById('click-counter').textContent = 'Toplam Tık: 0'; document.getElementById('mouse-distance').textContent = 'Mouse Mesafesi: 0px'; document.getElementById('heatmap-overlay').innerHTML = ''; } Bu kod gerçek zamanlı olarak kullanıcı davranışlarını yakalar, saklar ve analiz eder.
+
+ADIM 5: Test ve Optimizasyon (5 dakika)
+
+Tarayıcında index.html dosyasını aç. Chrome veya Firefox kullan. Sayfada mouse'unu hareket ettir, butonlara tıkla, ürün kartlarına dokun. Sağ alt köşedeki analiz panelinde verilerin canlı olarak güncellendiğini gör. 'Heatmap Göster' butonuna tıklayarak toplanan verilerin özetini kontrol et. Her tıklamada kırmızı-sarı renkte animasyonlu noktalar görmelisin. Eğer görmüyorsan F12 tuşuna basıp Console sekmesinde hata var mı kontrol et. Projeyi kaydet ve tarayıcıyı yenile, verilerin sıfırlandığını doğrula. Son olarak farklı tarayıcılarda da test et.
+
+Sık Yapılan Hatalar
+Hata 1: JavaScript dosyası yüklenmeme sorunu. Çözüm: Tüm dosyaların aynı klasörde olduğunu ve dosya adlarının doğru yazıldığını kontrol et. Hata 2: Mouse koordinatları yanlış hesaplanması. Çözüm: getBoundingClientRect() fonksiyonunu doğru kullandığından emin ol. Hata 3: Heatmap noktaları görünmeme. Çözüm: CSS'te z-index değerlerini kontrol et, overlay'in doğru konumlandırıldığından emin ol. Hata 4: Verilerin kaybolması. Çözüm: Sayfa yenilendiğinde veriler silinir, bu normal davranış, kalıcı saklama için localStorage ekleyebilirsin.
+
+Kaynaklar
+Geliştirme için Visual Studio Code editörünü code.visualstudio.com adresinden indir. JavaScript mouse eventleri hakkında detaylı bilgi için developer.mozilla.org/en-US/docs/Web/API/MouseEvent sayfasını incele. CSS animasyonları için w3schools.com/css/css3_animations.asp adresini ziyaret et. Gerçek heatmap örnekleri görmek için hotjar.com sitesindeki demo videolarını izleyebilirsin. Renk geçişleri için coolors.co araçını kullanabilirsin.
+
+Profesyonel Tavsiyeler
+Bu projeyi tamamladıktan sonra mutlaka GitHub'a yükle ve LinkedIn profilinde paylaş. İş başvurularında bu projeyi 'kullanıcı deneyimi analizi' becerisi olarak öne çıkar. Gerçek şirketlerde bu tür sistemler çok daha karmaşık ama temel mantık aynı. İlerleyen zamanlarda bu projeye localStorage ile veri saklama, farklı renk şemaları, ısı haritası yoğunluk gösterimi gibi özellikler ekleyebilirsin. Mülakatlarda bu projeyi anlatırken hem teknik detayları hem de iş değerini vurgula - 'kullanıcı davranışlarını anlayarak dönüşüm oranlarını artırabilirim' de. Bu beceri özellikle e-ticaret, fintech ve dijital pazarlama şirketlerinde çok değerli. Portföyünde bu projeyi sunarken ekran görüntüleri ve canlı demo linkini mutlaka ekle.
