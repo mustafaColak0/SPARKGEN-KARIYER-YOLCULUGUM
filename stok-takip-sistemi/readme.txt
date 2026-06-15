@@ -29,7 +29,7 @@ Bu proje; perakende, e-ticaret ve lojistik sektörlerinin en kritik ihtiyaçlar�
 
 ## 📁 Klasör Yapısı
 
-```text
+```bash
 stok-takip-sistemi/
 ├── backend/
 │   └── app.py          # Flask REST API Sunucusu
@@ -37,7 +37,7 @@ stok-takip-sistemi/
     ├── index.html      # UI İskeleti
     ├── style.css       # Kurumsal Dashboard Stilleri
     └── script.js       # Asenkron Veri Motoru ve DOM Yönetimi
-
+```
 
 ### 🧠 Karşılaşılan Zorluklar ve Çözüm Yolları
 Projenin geliştirilmesi ve entegrasyonu sürecinde karşılaşılan zorluklar ve uygulanan debugging stratejileri:
@@ -61,14 +61,11 @@ Zorluk: Python datetime kütüphanesiyle tarih basılırken biçimlendirme hatas
 Terminalinizden backend klasörüne gidin ve Flask uygulamasını ayağa kaldırın:
 
 ```bash
-
 cd backend
 python app.py
-
 ```
 
 frontend/index.html dosyasını tarayıcınızda doğrudan veya bir yerel sunucu (örn: Live Server) yardımıyla açın. Arayüz, yerel API sunucunuzla otomatik olarak asenkron entegrasyona geçecektir.
-
 
 
 ## 🗺️ Gelecek Planları ve Yol Haritası (Future Roadmap)
