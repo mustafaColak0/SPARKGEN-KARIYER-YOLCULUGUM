@@ -23,7 +23,7 @@ Veri Sağlayıcı: OpenWeatherMap API
 
 ⚙️ Kurulum ve Çalıştırma Rehberi (Installation Guide)
 
-1. Klasör Yapısı
+### 1. Klasör Yapısı
 Projenin lokalinizde kararlı çalışabilmesi için aşağıdaki dosya yapısının korunması gerekir:
 ```
 weather-app/
