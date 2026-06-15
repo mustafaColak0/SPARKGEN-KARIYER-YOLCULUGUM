@@ -1,0 +1,43 @@
+Neden Bu Proje?
+Fullstack geliştirici olma yolunda API entegrasyonu becerilerin en kritik yeteneklerden biri. İstatistiklere göre Fullstack pozisyonlarının %87'sinde API kullanımı ve entegrasyonu temel gereksinimler arasında yer alıyor. Bu proje senin backend ve frontend arasındaki veri akışını yönetme becerinizi geliştirecek ve gerçek dünya projelerinde karşılaşacağın temel problemleri çözmeni sağlayacak.
+
+Bu beceri özellikle e-ticaret, fintech, sosyal medya ve SaaS platformlarında yoğun olarak kullanılıyor. Trendyol, Hepsiburada, GittiGidiyor gibi büyük e-ticaret sitelerinde çalışan junior geliştiriciler günlük olarak ürün kataloğu API'leriyle çalışıyor. Ayrıca startup'larda ve ajans firmalarında da bu tür entegrasyonlar sıkça talep ediliyor.
+
+Bu projeyi tamamladığında Python ile RESTful API tüketme, JSON veri yapılarını işleme, hata yönetimi ve temel veri manipülasyonu becerilerini kazanmış olacaksın. Bu beceriler portfolyonda çok değerli olacak çünkü işverenler junior geliştiricilerden API entegrasyonu yapabilmelerini bekliyor.
+
+Gerçek iş ilanlarına baktığında 'API entegrasyonu deneyimi', 'RESTful servisler bilgisi', 'JSON veri işleme' gibi ifadeleri sık sık göreceksin. Bu proje tam da bu gereksinimleri karşılamana yardımcı olacak ve mülakatlarında somut örnek verebilmen için güçlü bir referans oluşturacak.
+
+Sektörel Karşılığı
+Büyük şirketlerde ürün kataloğu yönetimi genellikle mikroservis mimarisiyle yapılır ve farklı sistemler arasında API'ler üzerinden veri alışverişi gerçekleşir. Junior geliştiriciler bu süreçte API dokümantasyonunu okuma, endpoint'leri test etme, veri dönüşümlerini yapma ve hata durumlarını yönetme görevlerini üstlenirler. Bu proje tam da bu gerçek dünya senaryosunu simüle ediyor.
+
+Uygulama Planı - Adım Adım
+ADIM 1: Geliştirme Ortamının Hazırlanması (15 dakika)
+
+İlk olarak bilgisayarında Python'un kurulu olduğunu doğrula. Komut satırını aç ve 'python --version' yazarak kontrol et. Ardından yeni bir klasör oluştur: masaüstünde sağ tıkla, 'Yeni Klasör' seç ve adını 'eticaret-api-proje' yap. Bu klasörün içinde 'main.py' adında bir dosya oluştur. Visual Studio Code'u aç, File menüsünden 'Open Folder' seçeneğine tıkla ve oluşturduğun klasörü seç. Terminal'i aç (View > Terminal) ve 'pip install requests' komutunu çalıştırarak gerekli kütüphaneyi yükle. Ayrıca 'pip install pandas' komutunu da çalıştır çünkü veri işleme için kullanacağız.
+
+ADIM 2: API Bağlantısının Kurulması (20 dakika)
+
+main.py dosyasını aç ve şu kodu yaz: import requests, import json, import pandas as pd. Sonra API endpoint'ini tanımla: api_url = 'https://fakestoreapi.com/products'. Bu ücretsiz test API'si gerçek e-ticaret verilerini simüle ediyor. Bağlantı fonksiyonunu oluştur: def get_products(): try: response = requests.get(api_url), return response.json() if response.status_code == 200 else None, except Exception as e: print(f'Hata oluştu: {e}'), return None. Bu fonksiyonu test etmek için dosyanın sonuna products = get_products(), print(products) ekle ve F5'e basarak çalıştır.
+
+ADIM 3: Veri İşleme ve Filtreleme Sisteminin Geliştirilmesi (25 dakika)
+
+Gelen ürün verilerini işlemek için yeni fonksiyonlar oluştur. def filter_by_category(products, category): filtered = [product for product in products if product['category'].lower() == category.lower()], return filtered. Fiyat filtresi için: def filter_by_price_range(products, min_price, max_price): return [product for product in products if min_price <= product['price'] <= max_price]. Ürünleri sıralamak için: def sort_products(products, sort_by='price', reverse=False): return sorted(products, key=lambda x: x[sort_by], reverse=reverse). Ana işleme fonksiyonunu oluştur: def process_catalog(): products = get_products(), if products: df = pd.DataFrame(products), print(f'Toplam ürün sayısı: {len(df)}'), categories = df['category'].unique(), print(f'Kategoriler: {list(categories)}'), return products, else: print('Veri alınamadı'), return None.
+
+ADIM 4: Kullanıcı Arayüzü ve İnteraktif Özellikler (10 dakika)
+
+Basit bir menü sistemi oluştur: def show_menu(): print('1. Tüm ürünleri göster'), print('2. Kategoriye göre filtrele'), print('3. Fiyat aralığına göre filtrele'), print('4. Ürünleri sırala'), print('5. Çıkış'). Ana program döngüsü: def main(): products = process_catalog(), if not products: return, while True: show_menu(), choice = input('Seçiminizi yapın (1-5): '), if choice == '1': print(json.dumps(products[:5], indent=2)), elif choice == '5': break, else: print('Geçersiz seçim'). Dosyanın sonuna if __name__ == '__main__': main() ekle.
+
+ADIM 5: Test ve Optimizasyon (5 dakika)
+
+Programı çalıştır ve tüm fonksiyonları test et. Hata durumlarını kontrol etmek için internet bağlantısını kes ve tekrar çalıştır. Kod içine print statement'ları ekleyerek veri akışını takip et. Son olarak kodunu düzenle, gereksiz print'leri kaldır ve yorumlar ekle. Dosyayı 'eticaret_api_final.py' adıyla kaydet ve GitHub'a yüklemek için hazırla.
+
+Sık Yapılan Hatalar
+Hata 1: API response'unu kontrol etmeden direkt işlemeye çalışmak. Çözüm: Her zaman status code kontrolü yap. Hata 2: JSON veri tiplerini karıştırmak, özellikle price alanının float olduğunu unutmak. Çözüm: Veri tiplerini print ile kontrol et. Hata 3: Internet bağlantısı olmadığında programın çökmesi. Çözüm: Try-except blokları kullan. Hata 4: Büyük-küçük harf duyarlılığını göz ardı etmek. Çözüm: .lower() metodunu kullan.
+
+Kaynaklar
+Ana API kaynağı: https://fakestoreapi.com - Ücretsiz e-ticaret test verisi sağlıyor. Python Requests dokümantasyonu: https://docs.python-requests.org - API çağrıları için temel kaynak. Pandas dokümantasyonu: https://pandas.pydata.org/docs - Veri işleme için kapsamlı rehber. JSON işleme rehberi: Python'un resmi JSON modül dokümantasyonu.
+
+Profesyonel Tavsiyeler
+Bu projeyi tamamladıktan sonra mutlaka GitHub'a yükle ve README dosyasında ne yaptığını, hangi teknolojileri kullandığını, karşılaştığın zorlukları ve çözümlerini detaylı şekilde anlat. Portfolyonda bu projeyi sunarken API entegrasyonu, veri işleme ve hata yönetimi becerilerini vurgula. İş mülakatlarında bu projeyi anlatırken kod yapısını, kullandığın design pattern'leri ve performans optimizasyonlarını açıklayabilmeye hazırlan.
+
+Gelecekte bu beceriyi geliştirmek için farklı API'lerle çalışmaya devam et: sosyal medya API'leri, hava durumu API'leri, finans API'leri gibi. Ayrıca authentication gerektiren API'lerle çalışmayı öğren, rate limiting kavramlarını araştır ve async/await kullanarak performans optimizasyonu yapmaya odaklan. Bu proje senin API dünyasına giriş kapın olacak ve Fullstack developer olma yolunda sağlam bir temel oluşturacak.
