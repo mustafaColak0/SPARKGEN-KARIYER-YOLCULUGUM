@@ -43,7 +43,7 @@ Kullanıcı etkileşimleri veya harita koordinatları üzerinden gelen yoğunluk
    feedback_env\Scripts\activate
    # Mac/Linux için
    source feedback_env/bin/activate
-```
+   ```
 3.Flask sunucusunu ayağa kaldırın:
 
 ```bash
