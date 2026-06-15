@@ -36,7 +36,8 @@ Kullanıcı etkileşimleri veya harita koordinatları üzerinden gelen yoğunluk
 ## 🚀 Kurulum ve Çalıştırma Rehberi (Installation Guide)
 
 ### 1. Arka Yüzün Başlatılması
-1. Terminalden `heatmap-app` klasörünün içine girin.
+
+ Terminalden `heatmap-app` klasörünün içine girin
  Python sanal ortamını aktif hale getirin:
    ```bash
    # Windows için
@@ -44,14 +45,12 @@ Kullanıcı etkileşimleri veya harita koordinatları üzerinden gelen yoğunluk
    # Mac/Linux için
    source feedback_env/bin/activate
    ```
-3.Flask sunucusunu ayağa kaldırın:
-
+4. Flask sunucusunu ayağa kaldırın:
 ```bash
 python app.py
 ```
 2. Ön Yüzün Çalıştırma
 index.html dosyasını tarayıcınızda doğrudan açarak veya bir yerel sunucu (Live Server) vasıtasıyla başlatarak backend'den akan ısı haritası verilerini canlı olarak simüle edebilirsiniz.
-
 
 ---
 
