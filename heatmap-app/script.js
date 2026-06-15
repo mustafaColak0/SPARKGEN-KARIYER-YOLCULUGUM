@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         CreateHeatPoint(x, y);
     }); 
 
-    // 🖱️ 2. MOUSE HAREKETLERİNİ VE MESAFEYİ ÖLÇME
+    //  2. MOUSE HAREKETLERİNİ VE MESAFEYİ ÖLÇME
     container.addEventListener("mousemove", function(e) {
         const rect = container.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         mouseData.push({ x: x, y: y, timestamp: Date.now() });
     });
 
-    // 📊 3. DOCK BUTONLARINI AKTİF ETME (
+    //  3. DOCK BUTONLARINI AKTİF ETME (
     document.getElementById("show-heatmap").addEventListener("click", showHeatmap);
     document.getElementById('clear-data').addEventListener('click', clearData);
 }); 
