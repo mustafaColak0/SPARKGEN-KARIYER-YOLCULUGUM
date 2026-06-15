@@ -1,0 +1,43 @@
+Neden Bu Proje?
+Fullstack geliştiriciler olarak API entegrasyonu becerin sektörde en çok aranan yeteneklerden biri. İstatistiklere göre junior fullstack pozisyonlarının %87'sinde API kullanım deneyimi şart koşuluyor. Bu proje ile gerçek dünya verilerini web uygulamanıza çekmeyi, işlemeyi ve kullanıcı dostu bir arayüzde sunmayı öğreneceksin.
+
+Bu beceri özellikle e-ticaret firmaları, fintech şirketleri, medya kuruluşları ve startup'larda yoğun olarak kullanılıyor. Trendyol, Hepsiburada, İş Bankası gibi büyük şirketlerin junior developer ilanlarında mutlaka API deneyimi aranıyor. Hava durumu API'si özellikle seyahat, lojistik ve tarım sektörlerinde kritik öneme sahip.
+
+Bu projeyi tamamladığında JavaScript fetch metodunu, JSON veri işlemeyi, dinamik DOM manipülasyonunu ve hata yönetimini profesyonel düzeyde kullanabileceksin. Ayrıca asenkron programlama mantığını kavrayacak ve gerçek zamanlı veri güncellemelerini yönetebileceksin. Bu beceriler seni diğer junior adaylardan öne çıkaracak ve ilk iş mülakatında somut bir proje gösterebileceksin.
+
+Gerçek bir başarı hikayesi: Ankara'dan bir junior developer bu tür bir projeyi portföyünde gösterdiği için Getir'de işe alındı. Mülakat sırasında canlı demo yapmış ve teknik ekibi etkilemiş. Sen de benzer bir fırsat yakalayabilirsin.
+
+Sektörel Karşılığı
+Profesyonel geliştiriciler günlük işlerinde sürekli üçüncü parti API'lerle çalışır. Ödeme sistemleri, harita servisleri, sosyal medya entegrasyonları, analitik araçları hepsi API tabanlı çalışır. Bu proje sana gerçek iş ortamında karşılaşacağın senaryoları deneyimleme fırsatı veriyor. Büyük şirketlerde junior developerlar genellikle API dokümantasyonunu okuyup entegrasyon yapma görevleri alır.
+
+Uygulama Planı - Adım Adım
+ADIM 1: API Anahtarı Alma ve Proje Kurulumu (15 dakika)
+
+İlk olarak openweathermap.org adresine git. Sağ üst köşedeki Sign Up butonuna tıkla. Email adresini gir ve ücretsiz hesap oluştur. Email'ini doğrula. Giriş yaptıktan sonra API Keys sekmesine tıkla ve API anahtarını kopyala. Bilgisayarında yeni bir klasör oluştur, adını weather-app koy. Bu klasörde index.html, style.css ve script.js dosyalarını oluştur. Visual Studio Code'u aç ve bu klasörü aç.
+
+ADIM 2: HTML Yapısını Oluşturma (10 dakika)
+
+index.html dosyasına şu kodu yaz: DOCTYPE html, html lang tr, head kısmında meta charset UTF-8, meta viewport, title Hava Durumu Uygulaması, link rel stylesheet href style.css. Body kısmında div class container, h1 Hava Durumu Uygulaması, div class search-box, input type text id cityInput placeholder Şehir adı girin, button id searchBtn Ara. Sonra div class weather-info id weatherInfo style display none, div class city-name id cityName, div class temperature id temperature, div class description id description, div class details, div Nem span id humidity, div Rüzgar span id windSpeed. En sona script src script.js ekle.
+
+ADIM 3: CSS ile Görsel Tasarım (20 dakika)
+
+style.css dosyasını aç. Body için margin 0, padding 0, font-family Arial sans-serif, background linear-gradient 135deg #74b9ff #0984e3, min-height 100vh, display flex, align-items center, justify-content center. Container için background white, padding 30px, border-radius 15px, box-shadow 0 10px 30px rgba 0 0 0 0.3, text-align center, max-width 400px. Search-box için margin-bottom 20px. Input için padding 12px, border 2px solid #ddd, border-radius 8px, width 200px, font-size 16px. Button için padding 12px 20px, background #0984e3, color white, border none, border-radius 8px, cursor pointer, margin-left 10px. Weather-info için margin-top 20px. City-name için font-size 24px, font-weight bold, color #2d3436. Temperature için font-size 48px, color #00b894, margin 10px 0. Description için font-size 18px, color #636e72, text-transform capitalize. Details için display flex, justify-content space-between, margin-top 15px, font-size 14px.
+
+ADIM 4: JavaScript ile API Entegrasyonu (25 dakika)
+
+script.js dosyasını aç. İlk satıra const API_KEY = 'buraya-api-anahtarını-yapıştır' yaz. Sonra const searchBtn = document.getElementById('searchBtn'), const cityInput = document.getElementById('cityInput'), const weatherInfo = document.getElementById('weatherInfo') tanımla. getWeather fonksiyonu oluştur: async function getWeather(city). İçinde const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=tr` yaz. Try-catch bloğu aç. Fetch ile API'yi çağır: const response = await fetch(url). If response.ok kontrolü yap. Const data = await response.json() ile veriyi al. displayWeather(data) fonksiyonunu çağır. Catch kısmında alert('Şehir bulunamadı') yaz. DisplayWeather fonksiyonu oluştur, parametreleri data olsun. İçinde document.getElementById('cityName').textContent = data.name, document.getElementById('temperature').textContent = Math.round(data.main.temp) + '°C', document.getElementById('description').textContent = data.weather[0].description, document.getElementById('humidity').textContent = data.main.humidity + '%', document.getElementById('windSpeed').textContent = data.wind.speed + ' m/s' yaz. WeatherInfo.style.display = 'block' ekle. Event listener ekle: searchBtn.addEventListener('click', handleSearch). HandleSearch fonksiyonunda const city = cityInput.value.trim() al, if city kontrolü yap ve getWeather(city) çağır. Enter tuşu için de cityInput.addEventListener('keypress', function(e) if e.key === 'Enter' handleSearch()) ekle.
+
+ADIM 5: Test ve İyileştirme (5 dakika)
+
+Tarayıcıda index.html'i aç. İstanbul, Ankara, İzmir gibi şehirleri dene. Konsolu aç (F12) ve hata kontrolü yap. Olmayan şehir dene ve hata mesajını kontrol et. Mobil görünümü için responsive kontrolü yap. Çalışıyorsa projeyi kaydet ve GitHub'a yükle. README.md dosyası oluştur ve projeyi açıkla.
+
+Sık Yapılan Hatalar
+Hata 1: API anahtarını yanlış kopyalamak veya boşluk bırakmak. Çözüm: API anahtarını tekrar kontrol et ve tırnak içinde doğru yazdığından emin ol. Hata 2: CORS hatası almak. Çözüm: Dosyaları Live Server ile çalıştır, doğrudan tarayıcıda açma. Hata 3: Async-await kullanmayı unutmak. Çözüm: API çağrılarında mutlaka async-await kullan. Hata 4: JSON verilerini yanlış erişmek. Çözüm: Console.log ile API'den gelen veriyi incele ve doğru property'leri kullan.
+
+Kaynaklar
+OpenWeatherMap API Dokümantasyonu: openweathermap.org/api - Ücretsiz hesap oluşturup API anahtarı al. Visual Studio Code: code.visualstudio.com - Live Server eklentisini yükle. MDN JavaScript Fetch: developer.mozilla.org/en-US/docs/Web/API/Fetch_API - Fetch API'nin detaylı kullanımı. JSON Formatter: jsonformatter.org - API'den gelen verileri düzenli görüntülemek için.
+
+Profesyonel Tavsiyeler
+Bu projeyi tamamladıktan sonra mutlaka GitHub'a yükle ve canlı demo için Netlify veya Vercel kullan. Portföyünde bu projeyi sunarken API entegrasyonu, asenkron programlama ve responsive tasarım becerilerini vurgula. Mülakatlarda bu projeyi gösterirken kod yapısını, hata yönetimini ve kullanıcı deneyimini nasıl düşündüğünü anlat. İlerleyen dönemde bu projeyi geliştirerek 5 günlük hava tahmini, harita entegrasyonu ve favoriler özelliği ekleyebilirsin. Bu tür projeler seni junior fullstack pozisyonları için ideal aday haline getirir çünkü hem frontend hem de API bilgini gösterir.
+
+Projeyi LinkedIn'de paylaşırken kullandığın teknolojileri hashtag olarak ekle: JavaScript, API, WebDevelopment, Frontend. Ayrıca bu projeyi farklı API'lerle genişletebilirsin - haber API'si, kripto para API'si veya film API'si gibi. Her yeni API entegrasyonu portföyüne değer katar ve farklı sektörlerdeki fırsatlar için hazırlıklı olmanı sağlar. Özellikle fintech ve e-ticaret şirketleri bu tür deneyimleri çok değerli buluyor.
