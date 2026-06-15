@@ -22,21 +22,21 @@ Programlama Dili: JavaScript (ES6+, Fetch API, Asynchronous JS)
 Veri Sağlayıcı: OpenWeatherMap API
 
 ⚙️ Kurulum ve Çalıştırma Rehberi (Installation Guide)
-### 1. Klasör Yapısı
-Projenin lokalinizde kararlı çalışabilmesi için aşağıdaki dosya yapısının korunması gerekir:
 
-```bash
+1. Klasör Yapısı
+Projenin lokalinizde kararlı çalışabilmesi için aşağıdaki dosya yapısının korunması gerekir:
+```
 weather-app/
 ├── index.html
 ├── style.css
 └── script.js
 ```
-### 2.Çalıştırma Talimatı
-Tarayıcıların güvenlik politikaları (CORS) gereği, index.html dosyası doğrudan çift tıklanarak açılmamalıdır. Lokal bir sunucu simülasyonu şarttır:
+### 2. Çalıştırma Talimatı
+⚠️ Önemli Not: Tarayıcıların güvenlik politikaları (CORS) gereği, index.html dosyası doğrudan çift tıklanarak açılmamalıdır. Lokal bir sunucu simülasyonu şarttır.
 
 Projeyi Visual Studio Code ile açın.
 
-Live Server eklentisini başlatarak uygulamayı lokal bir sunucu (http://127.0.0.1:5500) üzerinden canlıya alın.
+Live Server eklentisini başlatarak uygulamayı lokal bir sunucu ([http://127.0.0.1:5500](http://127.0.0.1:5500)) üzerinden canlıya alın.
 
 Alternatif olarak, projeyi anında dünya çapında erişime açmak ve canlı demoyu sunmak için Netlify veya Vercel platformları üzerinde deploy edebilirsiniz.
 
@@ -52,7 +52,7 @@ Sorun: HTML tarafında id="searchBtn" olarak tanımlanan buton elementinin JavaS
 Çözüm: DOM isimlendirmeleri camelCase standardına (searchBtn) göre eşitlenerek elementlerin birbiriyle eksiksiz konuşması sağlanmıştır.
 
 🗺️ Gelecek Planları ve Yol Haritası (Future Roadmap)
-Gelişmiş Metoroloji Tahminleri: Sadece anlık hava durumu değil, OpenWeather 5 Days / 3 Hours Forecast API entegrasyonu yapılarak 5 günlük geleceğe yönelik hava tahmin grafikleri eklenecektir.
+Gelişmiş Meteoroloji Tahminleri: Sadece anlık hava durumu değil, OpenWeather 5 Days / 3 Hours Forecast API entegrasyonu yapılarak 5 günlük geleceğe yönelik hava tahmin grafikleri eklenecektir.
 
 Kullanıcı Kişiselleştirme (Favori Şehirler): Tarayıcının LocalStorage API'si kullanılarak kullanıcının sık arattığı şehirler hafızada tutulacak ve uygulama her açıldığında favori şehirlerin hava durumu otomatik yüklenecektir.
 
