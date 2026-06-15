@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Davranış Analizi Demo Sitesi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="heatmap-container">
+        <h1>Siber Isı Haritası (Heatmap) Analiz Laboratuvarı</h1>
+        
+        <div class="content-area">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button class="track-button">Ürünleri İncele</button>
+                <button class="track-button" style="background: linear-gradient(135deg, #11998e, #38ef7d);">Sepete Ekle</button>
+            </div>
+
+            <p style="text-align: center; color: #7f8c8d;">
+                Bu demo sitede mouse hareketleriniz ve tıklamalarınız anlık olarak siber loglama ile takip ediliyor.
+            </p>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>💻 Ürün 1 (Gaming Laptop)</h3>
+                    <p>Detayları incelemek için tıkla.</p>
+                </div>
+                <div class="product-card">
+                    <h3>🎧 Ürün 2 (ANC Kulaklık)</h3>
+                    <p>Detayları incelemek için tıkla.</p>
+                </div>
+                <div class="product-card">
+                    <h3>📱 Ürün 3 (Amiral Gemisi Telefon)</h3>
+                    <p>Detayları incelemek için tıkla.</p>
+                </div>
+            </div>
+
+            <div id="heatmap-overlay"></div>
+        </div>
+
+        <div id="analytics-panel">
+            <h2>📊 Canlı Analiz Verileri (Siber Dashboard)</h2>
+            <div style="display: flex; gap: 30px; margin-bottom: 15px; font-size: 18px;">
+                <span id="click-counter">Toplam Tık: 0</span>
+                <span id="mouse-distance">Mouse Mesafesi: 0px</span>
+            </div>
+            <button id="show-heatmap">🔍 Veri Özetini Göster</button>
+            <button id="clear-data" style="background-color: #7f8c8d;">⚡ Verileri Temizle</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

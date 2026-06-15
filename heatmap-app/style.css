@@ -1,0 +1,130 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0;
+    padding:20px;
+    background-color:#f5f5f5;
+}
+
+#heatmap-container{
+    max-width:1200px;
+    margin: 0 auto;
+    position:relative;
+    background:white;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1{
+    color:#2c3e50;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.content-area{
+    min-height:500px;
+    position:relative;
+}
+
+.track-button{
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color:white;
+border:none;
+padding:15px 30px;
+margin:10px;
+border-radius:25px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+transition:transform 0.2s;
+}
+.track-button:hover{
+    transform:scale(1.05);
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+    margin-top:30px;
+}
+
+.product-card{
+    background: #ecf0f1;
+    padding:30px;
+    text-align:center;
+    border-radius:8px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    border:2px solid transparent;
+}
+
+.product-card:hover{
+    background:#d5dbdb;
+    border-color:#34495e;
+    transform:translateY(-5px);
+}
+
+/* IsI haritası katmanı ve Animasyonlu Noktalar */
+
+#heatmap-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none; /* IsI haritasının altındaki öğelerle etkileşime izin verir */
+    z-index:10;
+}
+
+.heat-point{
+    position:absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%); /* Tam tıklandığı merkeze otursun diye */
+    animation: pulse 1.2s ease-out forwards;
+}
+
+@keyframes pulse{
+    0%{
+        transform:translate(-50%, -50%) scale(0);
+        opacity:1;
+    }
+    100%{
+        transform:translate(-50%, -50%) scale(1.5);
+        opacity:0;
+    }
+}
+
+#analiytics-panel{
+    background:#34495e;
+    color:white;
+    padding:20px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:inset 0 2px 10px rgba(0,0,0,0,2);
+}
+
+#analiytics-panel h2{
+    margin-top:0;
+    font-size:20px;
+    border-bottom:1px solid #4f5f6f;
+    padding-bottom:10px;
+}
+
+#analiytics-panel p{
+    background:#e47c3c;
+    color:white;
+    border:none;
+    padding: 12px 24px;
+    margin-right:10px;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+    transition:0.2s;
+}
+
+#analytics-panel button:hover{
+    opacity:0.9;
+}
