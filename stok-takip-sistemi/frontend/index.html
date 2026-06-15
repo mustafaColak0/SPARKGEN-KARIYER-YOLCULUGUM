@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stok Takip Sistemi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <tbody class="container">
+<h2> 📦 Gerçek Zamanlı Stok Takip Sistemi</h2>
+<form id ="urunForm">
+    <input type="text" id="urunAdi" placeHolder="Ürün adı giriniz" required>
+    <input type="number" id="miktar" placeholder="Miktar" min="1" required>
+    <input type="number" id="fiyat" placeholder="Fiyat (TL)" step="0.01" min="0" required>
+    <button type="submit">Ürün Ekle ➕</button>
+</form>
+
+<h2> Envanter Raporu</h2>
+<table id="urunTablosu">
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>Ürün Adı</th>
+        <th>Miktar</th>
+        <th>Fiyat</th>
+        <th>Kayıt Tarihi</th>
+    </tr>
+</thead>
+<tbody>
+    </tbody>
+</table>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+Neden Bu Proje?
+Fullstack geliştirici olarak en çok karşılaşacağın projelerden biri envanter yönetim sistemleridir. İstatistiklere göre e-ticaret şirketlerinin %87'si stok takibi sorunları yaşıyor ve bu alanda çalışabilecek geliştiricilere büyük ihtiyaç duyuyorlar. Bu proje sana hem frontend hem backend becerilerini bir arada kullanma fırsatı veriyor.
+
+Bu beceri özellikle küçük ve orta ölçekli işletmelerde, e-ticaret platformlarında, lojistik şirketlerinde ve perakende zincirlerde yoğun olarak aranıyor. Türkiye'deki teknoloji şirketlerinin %65'i bu tür sistemler geliştiriyor veya entegre ediyor. Hepsiburada, Trendyol, GittiGidiyor gibi platformların temelinde bu tür sistemler bulunuyor.
+
+Bu projeyi tamamladığında gerçek zamanlı veri güncelleme, CRUD operasyonları, API entegrasyonu ve kullanıcı arayüzü tasarımı konularında somut deneyim kazanacaksın. Ayrıca JavaScript, HTML, CSS ve Python bilgilerini pratik bir projede birleştirmiş olacaksın. Portfolio'nda gösterebileceğin canlı bir uygulaman olacak.
+
+Gerçek iş ilanlarında 'envanter yönetimi deneyimi', 'stok takip sistemi geliştirme' ve 'gerçek zamanlı veri işleme' kriterleri sıkça geçiyor. Bu proje bu üç alanı da kapsadığı için CV'nde öne çıkarabilecek güçlü bir referans olacak.
+
+Sektörel Karşılığı
+Büyük şirketlerde envanter yönetimi genellikle SAP, Oracle gibi kurumsal çözümlerle yapılıyor. Ancak küçük ve orta işletmeler özel geliştirilmiş, basit ve etkili çözümler tercih ediyor. Junior fullstack geliştiriciler genellikle bu tür özelleştirilmiş sistemlerin frontend arayüzlerini kodluyor, API entegrasyonlarını gerçekleştiriyor ve veri akışını yönetiyor. Özellikle startup'larda bu sistemlerin sıfırdan geliştirilmesinde aktif rol alıyorlar.
+
+Uygulama Planı - Adım Adım
+ADIM 1: Geliştirme Ortamı Hazırlığı (15 dakika)
+
+Önce bilgisayarında yeni bir klasör oluştur. Masaüstüne sağ tıkla, 'Yeni' seç, 'Klasör' tıkla. Klasörün adını 'stok-takip-sistemi' yap. Bu klasörün içinde üç adet alt klasör oluştur: 'frontend', 'backend' ve 'data'. Visual Studio Code programını aç, sol üstteki 'File' menüsüne tıkla, 'Open Folder' seç ve az önce oluşturduğun ana klasörü seç. Sol panelde klasör yapını göreceksin. Tarayıcında replit.com adresine git, ücretsiz hesap oluştur. Ana sayfada 'Create Repl' butonuna tıkla, 'Python' seç, proje adını 'StokTakipAPI' yap. Bu online ortamda backend kodlarını yazacaksın.
+
+ADIM 2: Veri Yapısı ve Backend Temeli (20 dakika)
+
+Replit'te main.py dosyasını aç. İlk olarak gerekli kütüphaneleri import et: from flask import Flask, request, jsonify, render_template_string import json from datetime import datetime. Flask uygulamasını başlat: app = Flask(__name__). Stok verilerini tutacak basit bir liste oluştur: stok_listesi = []. Temel bir ürün ekleme fonksiyonu yaz: @app.route('/urun-ekle', methods=['POST']) def urun_ekle(): veri = request.get_json() yeni_urun = {'id': len(stok_listesi) + 1, 'ad': veri['ad'], 'miktar': veri['miktar'], 'fiyat': veri['fiyat'], 'tarih': datetime.now().strftime('%Y-%m-%d %H:%M')} stok_listesi.append(yeni_urun) return jsonify({'durum': 'basarili', 'urun': yeni_urun}). Tüm ürünleri listeleme endpoint'i ekle: @app.route('/urunler', methods=['GET']) def urunler(): return jsonify(stok_listesi).
+
+ADIM 3: Frontend Arayüzü Geliştirme (25 dakika)
+
+Visual Studio Code'da frontend klasörünün içinde 'index.html' dosyası oluştur. HTML yapısını kur: body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; } .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; } .form-group { margin: 10px 0; } input, button { padding: 8px; margin: 5px; border: 1px solid #ddd; border-radius: 4px; } button { background-color: #007bff; color: white; cursor: pointer; } table { width: 100%; border-collapse: collapse; margin-top: 20px; } th, td { border: 1px solid #ddd; padding: 8px; text-align: left; } th { background-color: #f8f9fa; } . Body kısmına form ve tablo ekle:
+
+Stok Takip Sistemi
+Ürün Ekle
+ID	Ürün Adı	Miktar	Fiyat	Tarih
+.
+ADIM 4: JavaScript Fonksiyonalitesi (10 dakika)
+
+HTML dosyasının sonuna script etiketi ekle ve JavaScript kodlarını yaz. Form gönderme işlevi: document.getElementById('urunForm').addEventListener('submit', function(e) { e.preventDefault(); const urunAdi = document.getElementById('urunAdi').value; const miktar = document.getElementById('miktar').value; const fiyat = document.getElementById('fiyat').value; fetch('REPLIT_URL/urun-ekle', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ad: urunAdi, miktar: parseInt(miktar), fiyat: parseFloat(fiyat) }) }).then(response => response.json()).then(data => { urunleriYukle(); document.getElementById('urunForm').reset(); }); });. Ürünleri tabloya yükleme fonksiyonu: function urunleriYukle() { fetch('REPLIT_URL/urunler').then(response => response.json()).then(data => { const tbody = document.querySelector('#urunTablosu tbody'); tbody.innerHTML = ''; data.forEach(urun => { const row = tbody.insertRow(); row.innerHTML = '' + urun.id + '' + urun.ad + '' + urun.miktar + '' + urun.fiyat + ' TL' + urun.tarih + ''; }); }); } window.onload = urunleriYukle;
+
+ADIM 5: Test ve Entegrasyon (5 dakika)
+
+Replit'te main.py dosyasının sonuna app.run() ekle ve 'Run' butonuna tıkla. Sağ panelde açılan URL'yi kopyala. Visual Studio Code'daki JavaScript kodunda 'REPLIT_URL' yazan yerlere bu URL'yi yapıştır. HTML dosyasını tarayıcıda aç, form alanlarını doldur ve 'Ürün Ekle' butonuna tıkla. Tabloda yeni ürünün görünüp görünmediğini kontrol et. Birkaç farklı ürün ekleyerek sistemin çalışıp çalışmadığını test et. Eğer hata alıyorsan tarayıcının geliştirici araçlarını aç (F12) ve Console sekmesinde hata mesajlarını kontrol et.
+
+Sık Yapılan Hatalar
+Hata 1: CORS hatası alınması. Çözüm: Replit'teki main.py dosyasına from flask_cors import CORS ekle ve app = Flask(__name__) satırından sonra CORS(app) ekle. Hata 2: JSON verisi gönderilirken format hatası. Çözüm: Content-Type header'ının 'application/json' olduğundan emin ol. Hata 3: API URL'sinin yanlış yazılması. Çözüm: Replit URL'sini kopyalarken sonunda slash olmamasına dikkat et. Hata 4: Form verilerinin temizlenmemesi. Çözüm: Her başarılı işlemden sonra form.reset() çağırdığından emin ol.
+
+Kaynaklar
+Flask dokumentasyonu: flask.palletsprojects.com adresinde temel API geliştirme örnekleri bulabilirsin. Replit: replit.com ücretsiz Python hosting için. MDN Web Docs: developer.mozilla.org JavaScript fetch API kullanımı için. W3Schools: w3schools.com HTML tablo ve form örnekleri için. CSS Grid ve Flexbox örnekleri için CSS-Tricks: css-tricks.com sitesini kullanabilirsin.
+
+Profesyonel Tavsiyeler
+Bu projeyi tamamladıktan sonra GitHub'a yükle ve README dosyasında projenin ne yaptığını, hangi teknolojileri kullandığını ve nasıl çalıştırılacağını detaylı olarak açıkla. Ekran görüntüleri ekleyerek projenin görsel olarak nasıl göründüğünü göster. LinkedIn profilinde bu projeyi paylaş ve kullandığın teknolojileri etiketle. Mülakatlarda bu projeyi anlatırken özellikle frontend-backend entegrasyonu, API tasarımı ve gerçek zamanlı veri güncelleme konularına odaklan. Bu tür sistemlerin e-ticaret, lojistik ve perakende sektörlerinde nasıl kullanıldığını araştır ve bu bilgileri mülakatlarda kullan.
+
+İleriye dönük olarak bu projeye kullanıcı girişi, ürün kategorileri, stok uyarıları ve raporlama özellikleri ekleyebilirsin. Ayrıca MongoDB veya PostgreSQL gibi gerçek veritabanları entegre ederek projeyi daha profesyonel hale getirebilirsin. React veya Vue.js kullanarak frontend'i modern bir framework'e dönüştürmek de kariyer gelişimin için faydalı olacaktır. Bu proje sana fullstack geliştirme sürecinin temellerini öğretecek ve gerçek iş projelerinde karşılaşacağın durumları simüle edecektir.
