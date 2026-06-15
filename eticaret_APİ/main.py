@@ -51,7 +51,7 @@ def process_catalog(products):
     ve kaç adet benzersiz kategori olduğunu analiz edip ekrana basar.
     """
     if products:
-        # Gelen JSON listesini Pandas DataFrame'e çeviriyoruz (Excel tablosu gibi düşün)
+        # Gelen JSON listesini Pandas DataFrame'e çeviriyoruz (Excel tablosu gibi düşünün)
         df = pd.DataFrame(products)
         print(f"\n[ANALİZ] Toplam Ürün Sayısı: {len(df)}")
         
@@ -133,7 +133,7 @@ def main():
         if choice in ["1", "2", "3", "4"]:
             print("\n" + "-"*40)
             input("Devam etmek ve ekranı temizlemek için ENTER'a basın...")
-            os.system('cls')  # Kullanıcı Enter'a bastığı an ekran temizlenir ve taze menü gelir!
+            os.system('cls')  # Kullanıcı Enter'a bastığı an ekran temizlenir ve taze menü gelir
 
 # ---- PROGRAMIN ATEŞLENME NOKTASI ----
 if __name__ == "__main__":
