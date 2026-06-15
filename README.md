@@ -54,7 +54,9 @@ Bu depodaki Python tabanlı projelerin kararlı çalışabilmesi için .gitignor
 İlgili projeleri çalıştırmak için projenin kendi klasörüne girip şu adımları izleyebilirsiniz:
 
 Temiz bir sanal ortam ayağa kaldırın: ``python -m venv env``
+
 Sanal ortamı aktifleştirin (Windows): ``env\Scripts\activate``
+
 Bağımlılıkları yükleyin: ``pip install -r requirements.txt``
 
 ---
