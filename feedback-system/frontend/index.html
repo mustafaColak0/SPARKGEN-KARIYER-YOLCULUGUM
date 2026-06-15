@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Geri Bildirim Sistemi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="feedback-container">
+        <h1>Geri Bildirimini Paylaş 💬</h1>
+        
+        <form id="feedbackForm" novalidate>
+            <div class="form-group">
+
+            <label for="userName">Adınız Soyadınız:</label>
+            <input type="text" id="userName" placeholder="Örn: Ahmet Yılmaz" required>
+            </div>
+
+            <div class="form-group">
+                <label for="userEmail">E-posta Adresiniz:</label>
+                <input type="email" id="userEmail" placeholder="name@company.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feedbackType">Konu Başlığı:</label>
+                <select id="feedbackType">
+                    <option value="Genel">Genel Değerlendirme</option>
+                    <option value="Şikayet">Şikayet / Arıza</option>
+                    <option value="Öneri">Öneri / Geliştirme</option>
+                    <option value="Compliment">Teşekkür / Memnuniyet</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="feedbackMessage">Mesajınız:</label>
+                <textarea id="feedbackMessage" rows="5" placeholder="Deneyiminizi en az 10 karakterle detaylandırın..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="satisfactionLevel">Memnuniyet Seviyesi: <span id="satisfactionValue">3</span>/5</label>
+                <input type="range" id="satisfactionLevel" min="1" max="5" value="3">
+            </div>
+
+            <button type="submit" id="submitBtn">Geri Bildirim Gönder 🚀</button>
+        </form>
+
+        <div id="responseMessage" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+[
+    {
+        "ad": "Mustafa",
+        "email": "Mustafa@cass.com",
+        "tur": "Şikayet",
+        "mesaj": "çok güzel oldu bence",
+        "memnuniyet": 5,
+        "tarih": "26-06-14 20:10"
+    },
+    {
+        "ad": "sghshsh",
+        "email": "sgsg@gmail.com",
+        "tur": "Şikayet",
+        "mesaj": "sgsgsgsryreye4y5r4546546",
+        "memnuniyet": 3,
+        "tarih": "26-06-14 20:10"
+    },
+    {
+        "ad": "Mustafa Çolak",
+        "email": "MustafaÇolak@gmail.com",
+        "tur": "Genel",
+        "mesaj": "Çok güzel bir site elinize sağlık",
+        "memnuniyet": 5,
+        "tarih": "26-06-14 20:12"
+    },
+    {
+        "ad": "mustafa colak",
+        "email": "mustafacolak@gmail.com",
+        "tur": "Genel",
+        "mesaj": "çok güzel bir deneyimdi elime sağlık",
+        "memnuniyet": 5,
+        "tarih": "26-06-14 20:14"
+    }
+]
